@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
-using layeredwordindex.contracts;
+using obliviouswordindex.data;
 
-namespace layeredwordindex.domain
+namespace obliviouswordindex.domain
 {
     public class Index : IIndex
     {
         private readonly List<KeyValuePair<string, string>> _rawEntries = new List<KeyValuePair<string, string>>();
- 
+
         public IEnumerable<IEntry> Entries
         {
             get
             {
-                return _rawEntries.GroupBy(re => re.Key, 
-                                           re => re.Value, 
+                return _rawEntries.GroupBy(re => re.Key,
+                                           re => re.Value,
                                            (word, docnames) => new Entry(word, docnames.Distinct()))
                                   .OrderBy(e => e.Word)
                                   .ToArray();

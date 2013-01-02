@@ -1,0 +1,19 @@
+﻿/
+.run, Process_docs
+
+Process_docs
+., Load_docs
+Load_docs.doc, Build_index
+Build_index, output_index
+
+Load_docs
+., get_root_path
+get_root_path, find_docs
+find_docs, load_doc
+load_doc, .doc
+
+Build_index
+., parse_doc
+parse_doc, filter_occurrence
+filter_occurrence, register_occurrence
+register_occurrence, .
