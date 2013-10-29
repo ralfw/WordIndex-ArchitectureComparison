@@ -1,10 +1,11 @@
 ﻿/
 .run, Process_docs
+Process_docs, output_index
 
 Process_docs
 ., Load_docs
 Load_docs.doc, Build_index
-Build_index, output_index
+Build_index, .
 
 Load_docs
 ., get_root_path
